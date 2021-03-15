@@ -59,6 +59,7 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icons/icon.png"
+  # Необходимо запустить комманду для создания иконок     flutter packages pub run flutter_launcher_icons:main
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
