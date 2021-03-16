@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_weather/components/searchForm.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +23,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          _city,
+      body: Container(
+        child: Center(
+          child: Column(
+            children: [
+              Search(
+                parentCallback: _changeCity,
+              ),
+              Text(
+                _city,
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -58,6 +72,16 @@ class _HomePageState extends State<HomePage> {
           _city = place.locality;
         },
       );
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  _changeCity(city) async {
+    try {
+      setState(() {
+        _city = city;
+      });
     } catch (e) {
       print(e);
     }
