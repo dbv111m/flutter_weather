@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     _city = "test";
     super.initState();
+    _getCurrent();
   }
 
   @override
@@ -49,6 +50,9 @@ class _HomePageState extends State<HomePage> {
         _position.longitude,
       );
       Placemark place = p[0];
+      print(place);
+      print(jsonEncode(place));
+      print(place.locality);
       setState(
         () {
           _city = place.locality;
